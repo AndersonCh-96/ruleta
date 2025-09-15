@@ -4,13 +4,13 @@ import { RotateCcw } from "lucide-react";
 
 const PRIZES = [
   "Un mes adicional en tu membresía",
-  "Sigue participando",
+  "Diagnostico y limpieza + Escaneo Digital (Dental Center)",
   "Day Pass para 2 invitados en Phisique",
-  "Premio especial de una marca aliada",
-  "Three Day Pass para una persona de tu elección",
-  "Evaluación Checkup para tu persona favorita",
-  "Sigue participando",
-  "Premio especial de una marca aliada",
+  "Three Day Pass para una persona de tu elección.",
+  "Un mes adicional a tu membresía.",
+  "Evaluación Checkup para tu persona favorita.",
+  "Diagnostico y limpieza + Escaneo Digital (Dental Center)",
+  "Three Day Pass para una persona de tu elección.",
 ];
 
 const COLORS = [
