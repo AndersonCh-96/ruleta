@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import gsap from "gsap";
 import { RotateCcw } from "lucide-react";
 
