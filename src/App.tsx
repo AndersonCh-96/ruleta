@@ -140,7 +140,7 @@ function App() {
       <div className="backdrop-blur-lg rounded-3xl p-8 max-w-8xl w-full">
         <div className="text-center mb-8 flex flex-col items-center justify-center">
           <div>
-            <img src="./src/assets/img/title.png" className="w-50 h-20" alt="" />
+            <img src="/title.png" className="w-50 h-20" alt="" />
           </div>
           {/* <h1 className="text-4xl font-bold text-white mb-2">
             Ruleta de Premios
@@ -197,7 +197,7 @@ function App() {
             {/* Logo central */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-white">
               <img
-                src="./src/assets/img/logo.jpg"
+                src="/logo.jpg"
                 className="w-24 h-24 rounded-full"
                 alt=""
               />
