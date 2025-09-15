@@ -200,7 +200,7 @@ function App() {
             <button
               onClick={spinWheel}
               disabled={isSpinning}
-              className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-2xl font-bold text-xl shadow-lg transition-all duration-200 w-full disabled:opacity-50"
+              className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-2xl font-bold text-xl shadow-lg transition-all duration-200 w-full disabled:opacity-50 cursor-pointer"
             >
               {isSpinning ? "Girando..." : "¡GIRAR LA RULETA!"}
             </button>
@@ -208,7 +208,7 @@ function App() {
             <button
               onClick={resetWheel}
               disabled={isSpinning}
-              className="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg transition-all duration-200 w-full disabled:opacity-50 flex items-center justify-center gap-2"
+              className="bg-gradient-to-r cursor-pointer from-gray-600 to-gray-700 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg transition-all duration-200 w-full disabled:opacity-50 flex items-center justify-center gap-2"
             >
               <RotateCcw size={24} /> Reiniciar Ruleta
             </button>
