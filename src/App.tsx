@@ -151,9 +151,9 @@ function App() {
             transform={`rotate(${textAngle}, ${textX}, ${textY})`}
           >
             <tspan x={textX} dy="-0.5em">
-              {prize.split(" ").slice(0, 4).join(" ")}
+              {prize.split(" ").slice(0,4).join(" ")}
             </tspan>
-            <tspan x={textX} dy="1.1em">
+            <tspan x={textX} dy="1.2em">
               {prize.split(" ").slice(4).join(" ")}
             </tspan>
           </text>
@@ -163,7 +163,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#909599] flex items-center justify-center p-4 "  style={{
+    <div className="min-h-screen bg-[#909599] flex items-center justify-center p-4 " style={{
       backgroundImage:
         "url(https://www.phisiqueclub.com/wp-content/uploads/2023/11/LAMINA-3-scaled.webp)",
       backgroundSize: "cover",
@@ -237,7 +237,7 @@ function App() {
             {/* Fondo difuminado */}
             <div
               className="absolute inset-0"
-             
+
             ></div>
 
             {/* Contenido encima del fondo */}
