@@ -14,7 +14,7 @@ const PRIZES = [
 ];
 
 const COLORS = [
-  "#FF6B6B", // Coral
+  "#757575", // Coral
   "#4ECDC4", // Turquoise
   "#45B7D1", // Blue
   "#96CEB4", // Mint
