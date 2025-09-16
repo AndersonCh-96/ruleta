@@ -15,15 +15,17 @@ const PRIZES = [
 ];
 
 const COLORS = [
-  "#757575", // Gris
-  "#4ECDC4", // Turquoise
-  "#45B7D1", // Blue
-  "#96CEB4", // Mint
-  "#FECA57", // Yellow
-  "#FF9FF3", // Pink
-  "#54A0FF", // Light Blue
-  "#5F27CD", // Purple
+  "#909599", // Gris
+  "#2D3748", // Turquoise
+  "#909599", // Blue
+  "#1a1a2e", // Mint
+  "#909599", // Yellow
+  "#2D3748", // Pink
+  "#909599", // Light Blue
+  "#1a1a2e", // Purple
 ];
+
+// from-[#1a1a2e] via-[#16213e] to-[#0f3460]
 
 function App() {
   const [isSpinning, setIsSpinning] = useState(false);
@@ -161,8 +163,8 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#909599] flex items-center justify-center p-4">
-      <div className="backdrop-blur-lg rounded-3xl p-8 max-w-7xl w-full border border-white/40 shadow-lg">
+    <div className="min-h-screen bg-[#909599] flex items-center justify-center p-4 ">
+      <div className="backdrop-blur-lg rounded-3xl p-8 max-w-7xl w-full border border-white/40 shadow-lg drop-shadow-2xl ">
         <div className="text-center mb-8 flex flex-col items-center justify-center">
           <img src="/title.png" className="w-50 h-20" alt="title" />
           <p className="text-white/80 text-lg">
@@ -174,9 +176,9 @@ function App() {
           {/* Ruleta */}
           <div className="relative flex-shrink-0">
             {/* Puntero */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 translate-y-5 z-20">
-              <div className="w-0 h-0 border-l-[30px] border-r-[30px] border-t-[60px] border-l-transparent border-r-transparent border-t-[#AA182C]"></div>
-              <div className="w-9 h-9 bg-yellow-400 rounded-full absolute -top-4 left-1/2 transform -translate-x-1/2 border-4 border-white shadow-lg"></div>
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2  translate-y-5 z-20">
+              <div className="w-0 h-0 border-l-[30px] border-r-[30px]  hover:scale-105 transform  border-t-[60px] border-l-transparent border-r-transparent border-t-[#AA182C]"></div>
+              <div className="w-9 h-9 bg-[#AA182C] rounded-full absolute  hover:scale-105 transform  -top-4 left-1/2 transform -translate-x-1/2 border-4 border-white"></div>
             </div>
 
             {/* SVG de la ruleta */}
@@ -215,7 +217,7 @@ function App() {
             </svg>
 
             {/* Logo central */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-white">
+            <div className="absolute top-1/2  hover:scale-105 transform cursor-pointer left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-white">
               <img src="/logo.jpg" className="w-24 h-24 rounded-full" alt="logo" />
             </div>
           </div>
@@ -226,7 +228,7 @@ function App() {
               <button
                 onClick={spinWheel}
                 disabled={isSpinning}
-                className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-2xl font-bold text-xl shadow-lg transition-all duration-200 w-full disabled:opacity-50 cursor-pointer"
+                className="bg-[#1a1a2e] text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transform text-xl shadow-lg transition-all duration-200 w-full disabled:opacity-50 cursor-pointer"
               >
                 {isSpinning ? "Girando..." : "¡GIRAR LA RULETA!"}
               </button>
@@ -234,7 +236,7 @@ function App() {
               <button
                 onClick={resetWheel}
                 disabled={isSpinning}
-                className="bg-gradient-to-r cursor-pointer from-gray-600 to-gray-700 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg transition-all duration-200 w-full disabled:opacity-50 flex items-center justify-center gap-2"
+                className="bg-gradient-to-r cursor-pointer  hover:scale-105 transform  from-gray-600 to-gray-700 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg transition-all duration-200 w-full disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 <RotateCcw size={24} /> Reiniciar Ruleta
               </button>
