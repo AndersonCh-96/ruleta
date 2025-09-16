@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import gsap from "gsap";
+import confetti from "canvas-confetti";
 import { RotateCcw } from "lucide-react";
 
 const PRIZES = [
@@ -14,7 +15,7 @@ const PRIZES = [
 ];
 
 const COLORS = [
-  "#757575", // Coral
+  "#757575", // Gris
   "#4ECDC4", // Turquoise
   "#45B7D1", // Blue
   "#96CEB4", // Mint
@@ -30,15 +31,29 @@ function App() {
   const wheelRef = useRef<SVGSVGElement | null>(null);
 
   // Configuración de tamaño escalable
-  const wheelSize = 600; // tamaño del SVG
+  const wheelSize = 600;
   const center = wheelSize / 2;
   const radius = 280;
+
+  // Audios
+  const spinSound = useRef<HTMLAudioElement | null>(
+    typeof Audio !== "undefined" ? new Audio("/ruleta.mp3") : null
+  );
+  const winSound = useRef<HTMLAudioElement | null>(
+    typeof Audio !== "undefined" ? new Audio("/win.mp3") : null
+  );
 
   const spinWheel = () => {
     if (isSpinning) return;
 
     setIsSpinning(true);
     setSelectedPrize(null);
+
+    // reproducir sonido ruleta
+    if (spinSound.current) {
+      spinSound.current.currentTime = 0;
+      spinSound.current.play();
+    }
 
     const randomIndex = Math.floor(Math.random() * PRIZES.length);
     const sectionAngle = 360 / PRIZES.length;
@@ -49,7 +64,7 @@ function App() {
     const pointerAngle = 270;
     const desiredLandingAngle = pointerAngle - prizeCenterAngle;
 
-    const spins = 7; // número de vueltas completas
+    const spins = 10;
     const finalAngle =
       spins * 360 + ((desiredLandingAngle % 360) + 360) % 360;
 
@@ -61,6 +76,24 @@ function App() {
       onComplete: () => {
         setIsSpinning(false);
         setSelectedPrize(PRIZES[randomIndex]);
+
+        // parar sonido de ruleta
+        if (spinSound.current) {
+          spinSound.current.pause();
+          spinSound.current.currentTime = 0;
+        }
+
+        // reproducir sonido ganador
+        if (winSound.current) {
+          winSound.current.play();
+        }
+
+        // lanzar confeti
+        confetti({
+          particleCount: 200,
+          spread: 90,
+          origin: { y: 0.6 },
+        });
       },
     });
   };
@@ -101,7 +134,7 @@ function App() {
 
       const textAngle = startAngle + sectionAngle / 2;
       const textAngleRad = (textAngle * Math.PI) / 180;
-      const textRadius = 190; // distancia del texto al centro
+      const textRadius = 190;
       const textX = center + textRadius * Math.cos(textAngleRad);
       const textY = center + textRadius * Math.sin(textAngleRad);
 
@@ -139,12 +172,7 @@ function App() {
     <div className="min-h-screen bg-[#909599] flex items-center justify-center p-4">
       <div className="backdrop-blur-lg rounded-3xl p-8 max-w-8xl w-full">
         <div className="text-center mb-8 flex flex-col items-center justify-center">
-          <div>
-            <img src="/title.png" className="w-50 h-20" alt="" />
-          </div>
-          {/* <h1 className="text-4xl font-bold text-white mb-2">
-            Ruleta de Premios
-          </h1> */}
+          <img src="/title.png" className="w-50 h-20" alt="title" />
           <p className="text-white/80 text-lg">
             ¡Gira la ruleta y gana increíbles premios!
           </p>
@@ -196,11 +224,7 @@ function App() {
 
             {/* Logo central */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-white">
-              <img
-                src="/logo.jpg"
-                className="w-24 h-24 rounded-full"
-                alt=""
-              />
+              <img src="/logo.jpg" className="w-24 h-24 rounded-full" alt="logo" />
             </div>
           </div>
 
@@ -225,7 +249,7 @@ function App() {
             </div>
 
             {selectedPrize && !isSpinning && (
-              <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-6 rounded-3xl shadow-2xl border-2 border-yellow-300 w-full text-center animate-pulse ">
+              <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-6 rounded-3xl shadow-2xl border-2 border-yellow-300 w-full text-center animate-pulse">
                 <div className="text-4xl mb-2">🎉</div>
                 <h3 className="text-2xl font-bold mb-4">¡FELICITACIONES!</h3>
                 <p className="text-xl font-black">{selectedPrize}</p>
