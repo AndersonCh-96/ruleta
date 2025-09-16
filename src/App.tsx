@@ -64,7 +64,7 @@ function App() {
     const pointerAngle = 270;
     const desiredLandingAngle = pointerAngle - prizeCenterAngle;
 
-    const spins = 10;
+    const spins = 15;
     const finalAngle =
       spins * 360 + ((desiredLandingAngle % 360) + 360) % 360;
 
