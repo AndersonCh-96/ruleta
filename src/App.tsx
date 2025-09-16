@@ -35,10 +35,7 @@ function App() {
   const center = wheelSize / 2;
   const radius = 280;
 
-  // Audios
-  const spinSound = useRef<HTMLAudioElement | null>(
-    typeof Audio !== "undefined" ? new Audio("/ruleta.mp3") : null
-  );
+
   const winSound = useRef<HTMLAudioElement | null>(
     typeof Audio !== "undefined" ? new Audio("/win.mp3") : null
   );
@@ -50,7 +47,7 @@ function App() {
     setSelectedPrize(null);
 
     // Iniciar el sonido justo antes de la animación
- 
+
 
     const randomIndex = Math.floor(Math.random() * PRIZES.length);
     const sectionAngle = 360 / PRIZES.length;
@@ -77,7 +74,7 @@ function App() {
         setIsSpinning(false);
         setSelectedPrize(PRIZES[randomIndex]);
 
-      
+
         // reproducir sonido ganador
         if (winSound.current) {
           winSound.current.play();
