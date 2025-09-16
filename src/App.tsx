@@ -49,11 +49,8 @@ function App() {
     setIsSpinning(true);
     setSelectedPrize(null);
 
-    // reproducir sonido ruleta
-    if (spinSound.current) {
-      spinSound.current.currentTime = 0;
-      spinSound.current.play();
-    }
+    // Iniciar el sonido justo antes de la animación
+ 
 
     const randomIndex = Math.floor(Math.random() * PRIZES.length);
     const sectionAngle = 360 / PRIZES.length;
@@ -68,21 +65,19 @@ function App() {
     const finalAngle =
       spins * 360 + ((desiredLandingAngle % 360) + 360) % 360;
 
+    // Iniciar la animación con un pequeño retraso para sincronizar con el sonido
+
+
     gsap.to(wheelRef.current, {
       rotation: finalAngle,
       transformOrigin: `${center}px ${center}px`,
-      duration: 4,
+      duration: 10,
       ease: "power4.inOut",
       onComplete: () => {
         setIsSpinning(false);
         setSelectedPrize(PRIZES[randomIndex]);
 
-        // parar sonido de ruleta
-        if (spinSound.current) {
-          spinSound.current.pause();
-          spinSound.current.currentTime = 0;
-        }
-
+      
         // reproducir sonido ganador
         if (winSound.current) {
           winSound.current.play();
@@ -170,7 +165,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#909599] flex items-center justify-center p-4">
-      <div className="backdrop-blur-lg rounded-3xl p-8 max-w-8xl w-full">
+      <div className="backdrop-blur-lg rounded-3xl p-8 max-w-7xl w-full border border-white/40 shadow-lg">
         <div className="text-center mb-8 flex flex-col items-center justify-center">
           <img src="/title.png" className="w-50 h-20" alt="title" />
           <p className="text-white/80 text-lg">
