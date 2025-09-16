@@ -7,11 +7,11 @@ const PRIZES = [
   "Un mes adicional en tu membresía",
   "Diagnostico y limpieza + Escaneo Digital (Dental Center)",
   "Day Pass para 2 invitados en Phisique",
-  "Three Day Pass para una persona de tu elección.",
-  "Un mes adicional a tu membresía.",
-  "Evaluación Checkup para tu persona favorita.",
+  "Three Day Pass para una persona de tu elección",
+  "Un mes adicional a tu membresía",
+  "Evaluación Checkup para tu persona favorita",
   "Diagnostico y limpieza + Escaneo Digital (Dental Center)",
-  "Three Day Pass para una persona de tu elección.",
+  "Three Day Pass para una persona de tu elección",
 ];
 
 const COLORS = [
@@ -151,10 +151,10 @@ function App() {
             transform={`rotate(${textAngle}, ${textX}, ${textY})`}
           >
             <tspan x={textX} dy="-0.5em">
-              {prize.split(" ").slice(0, 3).join(" ")}
+              {prize.split(" ").slice(0, 4).join(" ")}
             </tspan>
-            <tspan x={textX} dy="1em">
-              {prize.split(" ").slice(3).join(" ")}
+            <tspan x={textX} dy="1.1em">
+              {prize.split(" ").slice(4).join(" ")}
             </tspan>
           </text>
         </g>
