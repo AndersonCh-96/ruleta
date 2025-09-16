@@ -163,11 +163,19 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#909599] flex items-center justify-center p-4 ">
-      <div className="backdrop-blur-lg rounded-3xl p-8 max-w-7xl w-full border border-white/40 shadow-lg drop-shadow-2xl ">
+    <div className="min-h-screen bg-[#909599] flex items-center justify-center p-4 "  style={{
+      backgroundImage:
+        "url(https://www.phisiqueclub.com/wp-content/uploads/2023/11/LAMINA-3-scaled.webp)",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundAttachment: "fixed",
+      zIndex: 0,
+    }}>
+      <div className="backdrop-blur-xs rounded-3xl p-8 max-w-7xl w-full border border-white/40 shadow-lg drop-shadow-2xl ">
         <div className="text-center mb-8 flex flex-col items-center justify-center">
           <img src="/title.png" className="w-50 h-20" alt="title" />
-          <p className="text-white/80 text-lg">
+          <p className="text-white text-lg font-bold">
             ¡Gira la ruleta y gana increíbles premios!
           </p>
         </div>
@@ -223,33 +231,45 @@ function App() {
           </div>
 
           {/* Panel derecho */}
-          <div className="flex flex-col items-center lg:items-start space-y-2 min-w-[350px]">
-            <div className="flex flex-row w-full gap-2">
-              <button
-                onClick={spinWheel}
-                disabled={isSpinning}
-                className="bg-[#1a1a2e] text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transform text-xl shadow-lg transition-all duration-200 w-full disabled:opacity-50 cursor-pointer"
-              >
-                {isSpinning ? "Girando..." : "¡GIRAR LA RULETA!"}
-              </button>
+          <div
+            className="flex flex-col items-center lg:items-start space-y-2 min-w-[550px] min-h-[500px] justify-center p-2 rounded-2xl overflow-hidden relative "
+          >
+            {/* Fondo difuminado */}
+            <div
+              className="absolute inset-0"
+             
+            ></div>
 
-              <button
-                onClick={resetWheel}
-                disabled={isSpinning}
-                className="bg-gradient-to-r cursor-pointer  hover:scale-105 transform  from-gray-600 to-gray-700 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg transition-all duration-200 w-full disabled:opacity-50 flex items-center justify-center gap-2"
-              >
-                <RotateCcw size={24} /> Reiniciar Ruleta
-              </button>
-            </div>
+            {/* Contenido encima del fondo */}
+            <div className="relative z-10 flex flex-col w-full gap-2">
+              <div className="flex flex-row w-full gap-2">
+                <button
+                  onClick={spinWheel}
+                  disabled={isSpinning}
+                  className="bg-[#1a1a2e] text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transform text-xl shadow-lg transition-all duration-200 w-full disabled:opacity-50 cursor-pointer"
+                >
+                  {isSpinning ? "Girando..." : "¡GIRAR LA RULETA!"}
+                </button>
 
-            {selectedPrize && !isSpinning && (
-              <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-6 rounded-3xl shadow-2xl border-2 border-yellow-300 w-full text-center animate-pulse">
-                <div className="text-4xl mb-2">🎉</div>
-                <h3 className="text-2xl font-bold mb-4">¡FELICITACIONES!</h3>
-                <p className="text-xl font-black">{selectedPrize}</p>
+                <button
+                  onClick={resetWheel}
+                  disabled={isSpinning}
+                  className="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg transition-all duration-200 w-full disabled:opacity-50 flex items-center justify-center gap-2 hover:scale-105 transform cursor-pointer"
+                >
+                  <RotateCcw size={24} /> Reiniciar Ruleta
+                </button>
               </div>
-            )}
+
+              {selectedPrize && !isSpinning && (
+                <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-6 rounded-3xl shadow-2xl border-2 border-yellow-300 w-full text-center animate-pulse">
+                  <div className="text-4xl mb-2">🎉</div>
+                  <h3 className="text-2xl font-bold mb-4">¡FELICITACIONES!</h3>
+                  <p className="text-xl font-black">{selectedPrize}</p>
+                </div>
+              )}
+            </div>
           </div>
+
         </div>
       </div>
     </div>
