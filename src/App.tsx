@@ -117,7 +117,7 @@ function App() {
             x={textX}
             y={textY}
             fill="white"
-            fontSize="13"
+            fontSize="12"
             fontWeight="600"
             textAnchor="middle"
             dominantBaseline="middle"
