@@ -51,7 +51,8 @@ function App() {
     // Iniciar el sonido justo antes de la animación
 
 
-    const randomIndex = Math.floor(Math.random() * PRIZES.length);
+    // Siempre seleccionar el primer premio (Un mes adicional en tu membresía)
+    const randomIndex = 0;
     const sectionAngle = 360 / PRIZES.length;
     const prizeStartAngle = randomIndex * sectionAngle;
     const prizeCenterAngle = prizeStartAngle + sectionAngle / 2;
@@ -74,7 +75,7 @@ function App() {
       ease: "power4.inOut",
       onComplete: () => {
         setIsSpinning(false);
-        setSelectedPrize(PRIZES[randomIndex]);
+        setSelectedPrize(PRIZES[0]); // Siempre seleccionar el primer premio
 
 
         // reproducir sonido ganador
