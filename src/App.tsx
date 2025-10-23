@@ -150,7 +150,7 @@ function App() {
       <div className="backdrop-blur-xs rounded-3xl p-4 sm:p-6 md:p-8 w-full max-w-7xl border border-white/40 shadow-lg drop-shadow-2xl">
         <div className="text-center mb-8 flex flex-col items-center justify-center">
           <img src="/title.png" className="w-40 sm:w-48 md:w-56 h-auto" alt="title" />
-          <p className="text-white text-base sm:text-lg font-bold mt-2">
+          <p className="text-white text-base sm:text-lg font-bold mt-2 animate-fade-out">
             ¡Gira la ruleta y gana increíbles premios!
           </p>
         </div>
@@ -197,7 +197,7 @@ function App() {
               />
             </svg>
 
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-white">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-white hover:scale-105 cursor-pointer transform transition-all duration-200">
               <img
                 src="/logo.jpg"
                 className="w-12 sm:w-20 md:w-24 h-auto rounded-full"
@@ -212,7 +212,7 @@ function App() {
               <button
                 onClick={spinWheel}
                 disabled={isSpinning}
-                className="bg-[#1a1a2e] text-white px-6 py-3 rounded-2xl font-bold text-base sm:text-lg hover:scale-105 transform transition-all duration-200 w-full disabled:opacity-50"
+                className="bg-[#1a1a2e] text-white px-6 py-3 rounded-2xl cursor-pointer font-bold text-base sm:text-lg hover:scale-105 transform transition-all duration-200 w-full disabled:opacity-50"
               >
                 {isSpinning ? "Girando..." : "¡GIRAR LA RULETA!"}
               </button>
@@ -220,7 +220,7 @@ function App() {
               <button
                 onClick={resetWheel}
                 disabled={isSpinning}
-                className="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-5 py-3 rounded-2xl font-semibold w-full flex items-center justify-center gap-2 hover:scale-105 transform transition-all duration-200 disabled:opacity-50"
+                className="bg-gradient-to-r from-gray-600 to-gray-700 cursor-pointer text-white px-5 py-3 rounded-2xl font-semibold w-full flex items-center justify-center gap-2 hover:scale-105 transform transition-all duration-200 disabled:opacity-50"
               >
                 <RotateCcw size={20} /> Reiniciar
               </button>
