@@ -113,6 +113,7 @@ function App() {
         <g key={index}>
           <path d={pathData} fill={COLORS[index]} stroke="#fff" strokeWidth="3" />
           <text
+          className="text-[5px] md:text-[12px]"
             x={textX}
             y={textY}
             fill="white"
