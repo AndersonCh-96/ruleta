@@ -156,7 +156,7 @@ function App() {
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
           {/* 🎯 Ruleta */}
-          <div className="relative flex-shrink-0 scale-120 sm:scale-100">
+          <div className="relative flex-shrink-0 scale-130 sm:scale-100">
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 translate-y-5 z-20">
               <div className="w-0 h-0 border-l-[20px] border-r-[20px] border-t-[40px] border-l-transparent border-r-transparent border-t-[#AA182C]"></div>
               <div className="w-7 h-7 bg-[#AA182C] rounded-full absolute -top-3 left-1/2 transform -translate-x-1/2 border-4 border-white"></div>
