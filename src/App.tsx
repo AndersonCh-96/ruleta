@@ -116,7 +116,7 @@ function App() {
             x={textX}
             y={textY}
             fill="white"
-            fontSize={wheelSize < 400 ? "8" : "12"}
+            fontSize={wheelSize < 400 ? "6" : "12"}
             fontWeight="500"
             textAnchor="middle"
             dominantBaseline="middle"
