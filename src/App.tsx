@@ -117,7 +117,7 @@ function App() {
             y={textY}
             fill="white"
             fontSize={wheelSize < 400 ? "8" : "12"}
-            fontWeight="600"
+            fontWeight="500"
             textAnchor="middle"
             dominantBaseline="middle"
             transform={`rotate(${textAngle}, ${textX}, ${textY})`}
