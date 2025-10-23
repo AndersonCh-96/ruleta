@@ -199,7 +199,7 @@ function App() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-white">
               <img
                 src="/logo.jpg"
-                className="w-16 sm:w-20 md:w-24 h-auto rounded-full"
+                className="w-12 sm:w-20 md:w-24 h-auto rounded-full"
                 alt="logo"
               />
             </div>
